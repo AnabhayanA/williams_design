@@ -1,0 +1,496 @@
+/* ==========================================================================
+   Outlaw Coffee - Professional Brand Styling
+   Dark, bold, and rebellious design system
+   ========================================================================== */
+
+/* ==========================================================================
+   Color Palette
+   ========================================================================== */
+:root {
+  --primary-black: #000000;
+  --primary-crimson: #8B0000;
+  --accent-gray: #6B7280;
+  --accent-copper: #B87333;
+  --light-gray: #F3F4F6;
+  --dark-gray: #111827;
+  --white: #FFFFFF;
+  --border-color: #D1D5DB;
+}
+
+/* ==========================================================================
+   Global Styles
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+  color: var(--dark-gray);
+  background-color: var(--white);
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary-black);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-crimson);
+  margin: 2rem 0 1rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid var(--primary-crimson);
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-black);
+  margin: 1.5rem 0 0.75rem 0;
+}
+
+h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--accent-gray);
+  margin: 1rem 0 0.5rem 0;
+}
+
+p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+strong {
+  font-weight: 700;
+  color: var(--primary-black);
+}
+
+em {
+  font-style: italic;
+  color: var(--primary-crimson);
+}
+
+/* ==========================================================================
+   Header & Navigation
+   ========================================================================== */
+header {
+  background: linear-gradient(135deg, var(--primary-black) 0%, #1a1a1a 100%);
+  color: var(--white);
+  padding: 2rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header h1 {
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  flex: 1;
+  min-width: 150px;
+}
+
+nav a {
+  display: block;
+  padding: 1rem;
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+  text-align: center;
+}
+
+nav a:hover {
+  background-color: var(--primary-crimson);
+  border-left-color: var(--accent-copper);
+  transform: translateY(-2px);
+}
+
+nav a:active {
+  background-color: var(--primary-crimson);
+}
+
+/* ==========================================================================
+   Main Content
+   ========================================================================== */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.content {
+  background: var(--white);
+}
+
+section {
+  margin-bottom: 3rem;
+  padding: 2rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+section:hover {
+  box-shadow: 0 8px 24px rgba(139, 0, 0, 0.1);
+  border-color: var(--primary-crimson);
+}
+
+/* ==========================================================================
+   Lists
+   ========================================================================== */
+ul, ol {
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+li {
+  margin-bottom: 0.75rem;
+  line-height: 1.8;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+a {
+  color: var(--primary-crimson);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+a:hover {
+  color: var(--primary-black);
+  text-decoration: underline;
+}
+
+a:active {
+  color: var(--accent-copper);
+}
+
+/* ==========================================================================
+   Color Grid (Archetype Page)
+   ========================================================================== */
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.color-box {
+  padding: 2rem;
+  border-radius: 8px;
+  color: var(--white);
+  text-align: center;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.color-box:hover {
+  transform: translateY(-4px);
+}
+
+.color-box strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--white);
+}
+
+/* ==========================================================================
+   AIDA Stages (Sales Funnel)
+   ========================================================================== */
+.aida-stages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.stage {
+  padding: 1.5rem;
+  border: 2px solid var(--primary-crimson);
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(139, 0, 0, 0.05) 0%, transparent 100%);
+  transition: all 0.3s ease;
+}
+
+.stage:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(139, 0, 0, 0.15);
+  background: linear-gradient(135deg, rgba(139, 0, 0, 0.1) 0%, transparent 100%);
+}
+
+.stage h4 {
+  color: var(--primary-crimson);
+  margin-top: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   Competitor Cards
+   ========================================================================== */
+.competitor-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.competitor-card {
+  padding: 1.5rem;
+  border: 2px solid var(--accent-gray);
+  border-radius: 8px;
+  background: var(--light-gray);
+  transition: all 0.3s ease;
+}
+
+.competitor-card:hover {
+  border-color: var(--primary-crimson);
+  background: var(--white);
+  box-shadow: 0 8px 20px rgba(139, 0, 0, 0.12);
+}
+
+.competitor-card h4 {
+  margin-top: 0;
+  color: var(--primary-black);
+}
+
+.competitor-card a {
+  color: var(--primary-crimson);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background: linear-gradient(135deg, var(--primary-black) 0%, var(--primary-crimson) 100%);
+  color: var(--white);
+}
+
+th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+tbody tr:hover {
+  background-color: rgba(139, 0, 0, 0.05);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+footer {
+  background: linear-gradient(135deg, var(--primary-black) 0%, #1a1a1a 100%);
+  color: var(--white);
+  text-align: center;
+  padding: 2rem;
+  margin-top: 4rem;
+  border-top: 3px solid var(--primary-crimson);
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav li {
+    min-width: auto;
+  }
+
+  nav a {
+    border-left: 3px solid var(--primary-crimson);
+    text-align: left;
+  }
+
+  main {
+    padding: 1.5rem;
+  }
+
+  section {
+    padding: 1.5rem;
+  }
+
+  .color-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .aida-stages {
+    grid-template-columns: 1fr;
+  }
+
+  .competitor-links {
+    grid-template-columns: 1fr;
+  }
+
+  table {
+    font-size: 0.9rem;
+  }
+
+  th, td {
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  header {
+    padding: 1rem 0;
+  }
+
+  header h1 {
+    margin-bottom: 1rem;
+  }
+
+  nav a {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  section {
+    padding: 1rem;
+  }
+
+  .color-grid {
+    grid-template-columns: 1fr;
+  }
+
+  ul, ol {
+    margin-left: 1.5rem;
+  }
+}
+
+/* ==========================================================================
+   Accessibility
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: more) {
+  body {
+    font-weight: 600;
+  }
+
+  border {
+    border-width: 2px;
+  }
+}
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+@media print {
+  header, footer, nav {
+    display: none;
+  }
+
+  main {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  section {
+    page-break-inside: avoid;
+    border: none;
+    box-shadow: none;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
