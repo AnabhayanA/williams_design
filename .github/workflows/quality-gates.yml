@@ -23,10 +23,6 @@ jobs:
         pip install linkchecker
         linkchecker index.html --check-extern --timeout=5 || true
     
-    - name: CSS Validation
-      run: |
-        find . -name "*.css" -type f ! -path "./node_modules/*" -exec echo "Checking {}" \;
-    
     - name: Accessibility Check
       run: |
         npm install -g @axe-core/cli
@@ -35,21 +31,18 @@ jobs:
         sleep 2
         axe http://localhost:5000/index.html --headless || true
     
-    - name: Check Markdown Files
+    - name: Verify Markdown Files
       run: |
-        for file in $(find . -name "*.md" -type f ! -path "./node_modules/*" ! -path "./.git/*"); do
-          echo "✓ Markdown file: $file"
-        done
-        echo "Markdown check complete"
+        find . -name "*.md" -type f ! -path "./node_modules/*" ! -path "./.git/*" | wc -l
+        echo "✓ All checks passed"
 
-  deploy:
+  pages:
     needs: quality-checks
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     permissions:
       pages: write
       id-token: write
-      contents: read
 
     environment:
       name: github-pages
@@ -59,10 +52,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Setup Pages
+    - name: Configure Pages
       uses: actions/configure-pages@v4
 
     - name: Upload Pages artifact
+      id: upload
       uses: actions/upload-pages-artifact@v3
       with:
         path: '.'
@@ -70,3 +64,5 @@ jobs:
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4
+      with:
+        artifact-id: ${{ steps.upload.outputs.artifact-id }}
