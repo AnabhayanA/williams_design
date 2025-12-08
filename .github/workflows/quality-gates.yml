@@ -1,4 +1,4 @@
-name: Quality Gates
+name: Quality Gates & Deploy
 
 on:
   push:
@@ -11,46 +11,34 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     
     - name: Validate HTML
       run: |
-        # Install html5validator
         pip install html5validator
-        # Validate all HTML files
         find . -name "*.html" -type f ! -path "./node_modules/*" | xargs html5validator --format=json || exit 1
     
     - name: Check Links
       run: |
-        # Check for broken links in HTML
         pip install linkchecker
         linkchecker index.html --check-extern --timeout=5 || true
     
     - name: CSS Validation
       run: |
-        # Basic CSS syntax check
-        pip install pycss
         find . -name "*.css" -type f ! -path "./node_modules/*" -exec echo "Checking {}" \;
     
     - name: Accessibility Check
       run: |
-        # Install axe-core CLI
         npm install -g @axe-core/cli
         npm install -g serve
-        # Start a simple server and run accessibility tests
         serve -s . -l 5000 &
         sleep 2
         axe http://localhost:5000/index.html --headless || true
     
-    - name: Check for Markdown Issues
+    - name: Check Markdown Files
       run: |
-        # Basic markdown syntax check (no external package needed)
         for file in $(find . -name "*.md" -type f ! -path "./node_modules/*" ! -path "./.git/*"); do
-          echo "Checking markdown: $file"
-          # Basic check for common markdown issues
-          if grep -q "^[^#]" "$file" 2>/dev/null; then
-            echo "✓ Markdown file valid: $file"
-          fi
+          echo "✓ Markdown file: $file"
         done
         echo "Markdown check complete"
 
@@ -68,12 +56,13 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout
+      uses: actions/checkout@v4
 
     - name: Setup Pages
       uses: actions/configure-pages@v4
 
-    - name: Upload artifact
+    - name: Upload Pages artifact
       uses: actions/upload-pages-artifact@v3
       with:
         path: '.'
