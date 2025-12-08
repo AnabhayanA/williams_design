@@ -23,6 +23,25 @@
   </header>
 
   <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h2>Outlaw Coffee ☕</h2>
+        <p class="hero-tagline">Brew the Revolution</p>
+        <p class="hero-description">Coffee has become corporate, sterile, and soulless. We reject that.</p>
+      </div>
+      <svg class="hero-graphic" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Coffee cup -->
+        <rect x="40" y="60" width="120" height="100" rx="5" fill="none" stroke="#2C1810" stroke-width="3"/>
+        <path d="M 160 80 Q 180 80 180 100 Q 180 120 160 120" fill="none" stroke="#2C1810" stroke-width="3" stroke-linecap="round"/>
+        <!-- Steam -->
+        <path d="M 70 50 Q 75 35 70 20" fill="none" stroke="#8B4513" stroke-width="2" stroke-linecap="round"/>
+        <path d="M 100 50 Q 105 35 100 20" fill="none" stroke="#8B4513" stroke-width="2" stroke-linecap="round"/>
+        <path d="M 130 50 Q 135 35 130 20" fill="none" stroke="#8B4513" stroke-width="2" stroke-linecap="round"/>
+        <!-- Coffee inside -->
+        <rect x="45" y="75" width="110" height="80" rx="3" fill="#6F4E37" opacity="0.7"/>
+      </svg>
+    </section>
+
     <h2>Outlaw Coffee - Brew the Revolution</h2>
     <div class="content">
       <section>
@@ -44,7 +63,7 @@
           <li><strong><a href="cialdini.html">Persuasion Methods</a>:</strong> How we use psychology to connect with our community</li>
           <li><strong><a href="sales-funnel.html">Sales Strategy</a>:</strong> The AIDA model that turns rebels into loyal customers</li>
           <li><strong><a href="competitive-landscape.html">Competitive Analysis</a>:</strong> How we differentiate from corporate giants</li>
-          <li><strong>Competitor Deep-Dives:</strong> 
+          <li><strong>Competitor Deep-Dives</strong> 
             <ul>
               <li><a href="dunkin-donuts.html">Dunkin' Donuts</a> - The corporate standard</li>
               <li><a href="dutch-bros.html">Dutch Bros</a> - Fun but empty</li>
@@ -65,8 +84,44 @@
       </section>
 
       <section>
+        <h3>Which Cialdini Principle Resonates With You?</h3>
+        <div class="quiz-container">
+          <div class="quiz-option" onclick="selectPrinciple('reciprocity')">
+            <h4>♻️ Reciprocity</h4>
+            <p>I value brands that give back before asking for anything</p>
+          </div>
+          <div class="quiz-option" onclick="selectPrinciple('commitment')">
+            <h4>🎯 Commitment</h4>
+            <p>Once I join something, I'm all in</p>
+          </div>
+          <div class="quiz-option" onclick="selectPrinciple('social-proof')">
+            <h4>👥 Social Proof</h4>
+            <p>I want to be part of a growing community</p>
+          </div>
+          <div class="quiz-option" onclick="selectPrinciple('authority')">
+            <h4>⭐ Authority</h4>
+            <p>I trust experts and proven craftsmanship</p>
+          </div>
+          <div class="quiz-option" onclick="selectPrinciple('liking')">
+            <h4>❤️ Liking</h4>
+            <p>I connect with authentic, relatable brands</p>
+          </div>
+          <div class="quiz-option" onclick="selectPrinciple('scarcity')">
+            <h4>⚡ Scarcity</h4>
+            <p>I love limited editions and exclusive access</p>
+          </div>
+        </div>
+        <div id="quiz-result" class="quiz-result" style="display:none;"></div>
+      </section>
+
+      <section>
         <h3>Join the Rebellion</h3>
         <p>This is more than a coffee brand. It's a movement for everyone tired of playing it safe.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Enter your email" id="newsletter-email">
+          <button onclick="subscribeNewsletter()">Join Now</button>
+          <div id="newsletter-message" style="margin-top: 1rem; text-align: center;"></div>
+        </div>
         <p style="text-align: center; margin-top: 2rem;">
           <strong style="font-size: 1.25rem; color: var(--primary-crimson);">Brew Your Own Rules</strong>
         </p>
@@ -75,7 +130,44 @@
   </main>
 
   <footer>
-    <p>© 2025 Williams Design Project</p>
+    <p>© 2025 Outlaw Coffee - Brew the Revolution</p>
   </footer>
+
+  <script>
+    function selectPrinciple(principle) {
+      const messages = {
+        'reciprocity': '♻️ <strong>Reciprocity</strong> - We believe in giving value first. Free brewing guides, community events, and honest education before we ever ask for a sale.',
+        'commitment': '🎯 <strong>Commitment</strong> - Join the Outlaw Club and become part of a movement. Once you\'re in, you\'re committed to authenticity and quality.',
+        'social-proof': '👥 <strong>Social Proof</strong> - Our community is growing fast. Thousands of rebels are brewing their own rules. Will you join them?',
+        'authority': '⭐ <strong>Authority</strong> - We\'re master roasters with decades of craft. Every bean is selected, roasted, and tested with precision.',
+        'liking': '❤️ <strong>Liking</strong> - We don\'t corporate speak. We\'re real people making real coffee, speaking your language, sharing your values.',
+        'scarcity': '⚡ <strong>Scarcity</strong> - Limited-edition roasts, seasonal releases, exclusive member access. Outlaw Coffee is never mass-produced.'
+      };
+
+      const result = document.getElementById('quiz-result');
+      result.innerHTML = messages[principle];
+      result.style.display = 'block';
+      result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function subscribeNewsletter() {
+      const email = document.getElementById('newsletter-email').value;
+      const message = document.getElementById('newsletter-message');
+      
+      if (!email) {
+        message.innerHTML = '<span style="color: var(--primary-crimson);">Please enter your email</span>';
+        return;
+      }
+      
+      if (!email.includes('@')) {
+        message.innerHTML = '<span style="color: var(--primary-crimson);">Please enter a valid email</span>';
+        return;
+      }
+      
+      message.innerHTML = '<span style="color: var(--primary-crimson); font-weight: bold;">🔥 Welcome to the rebellion! Check your email.</span>';
+      document.getElementById('newsletter-email').value = '';
+      setTimeout(() => { message.innerHTML = ''; }, 3000);
+    }
+  </script>
 </body>
 </html>

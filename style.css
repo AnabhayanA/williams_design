@@ -23,12 +23,188 @@
 }
 
 /* ==========================================================================
-   Global Styles
+   Hero Section
    ========================================================================== */
-* {
+.hero {
+  background: linear-gradient(135deg, var(--espresso) 0%, var(--mocha) 100%);
+  color: var(--cream);
+  padding: 4rem 2rem;
+  border-radius: 12px;
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  box-shadow: 0 8px 32px rgba(26, 20, 16, 0.3);
+}
+
+.hero-content {
+  flex: 1;
+  min-width: 250px;
+}
+
+.hero h2 {
+  color: var(--cream);
+  border-bottom: 3px solid var(--primary-crimson);
+  margin-top: 0;
+  font-size: 2.5rem;
+}
+
+.hero-tagline {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-copper);
+  margin: 0.5rem 0 1rem 0;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--latte);
+}
+
+.hero-graphic {
+  width: 200px;
+  height: 200px;
+  flex-shrink: 0;
+  animation: steam 3s ease-in-out infinite;
+}
+
+@keyframes steam {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ==========================================================================
+   Quiz Section
+   ========================================================================== */
+.quiz-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.quiz-option {
+  padding: 1.5rem;
+  border: 2px solid var(--accent-gray);
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--cream) 0%, #FFFAF0 100%);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.quiz-option:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-crimson);
+  box-shadow: 0 8px 16px rgba(139, 69, 19, 0.2);
+  background: linear-gradient(135deg, #F5EFE0 0%, #FFF8DC 100%);
+}
+
+.quiz-option h4 {
+  color: var(--espresso);
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.quiz-option p {
+  font-size: 0.9rem;
+  color: var(--mocha);
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  line-height: 1.5;
+}
+
+.quiz-result {
+  padding: 1.5rem;
+  margin: 2rem 0;
+  background: linear-gradient(135deg, rgba(139, 69, 19, 0.1) 0%, transparent 100%);
+  border-left: 4px solid var(--primary-crimson);
+  border-radius: 8px;
+  color: var(--espresso);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+/* ==========================================================================
+   Newsletter Form
+   ========================================================================== */
+.newsletter-form {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
+
+.newsletter-form input {
+  flex: 1;
+  min-width: 250px;
+  padding: 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  background: var(--cream);
+  color: var(--espresso);
+  transition: all 0.3s ease;
+}
+
+.newsletter-form input:focus {
+  outline: none;
+  border-color: var(--primary-crimson);
+  box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.1);
+}
+
+.newsletter-form button {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--primary-crimson) 0%, var(--accent-copper) 100%);
+  color: var(--cream);
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 12px rgba(139, 69, 19, 0.2);
+}
+
+.newsletter-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(139, 69, 19, 0.3);
+}
+
+.newsletter-form button:active {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Responsive - Hero Section
+   ========================================================================== */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .hero-graphic {
+    width: 150px;
+    height: 150px;
+  }
+
+  .quiz-container {
+    grid-template-columns: 1fr;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-form input {
+    min-width: auto;
+  }
 }
 
 html {
