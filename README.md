@@ -3,7 +3,7 @@
 **Brew the Revolution.** A professional website for Outlaw Coffee that combines competitive research, brand archetypes, Cialdini's persuasion methods, and a strategic sales funnel.
 
 ## 🌐 Live Site
-[View the live website on GitHub Pages](https://anabhayan.github.io/williams_design/)
+[View the live website on GitHub Pages](https://anabhayana.github.io/williams_design/)
 
 ## 📋 Project Contents
 
@@ -81,7 +81,7 @@ The site is automatically deployed to GitHub Pages when pushing to the main bran
 1. Ensure all changes are committed and pushed to `main`
 2. GitHub Actions will automatically run quality gates
 3. Upon success, the site deploys to GitHub Pages
-4. View at: `https://anabhayan.github.io/williams_design/`
+4. View at: `https://anabhayana.github.io/williams_design/`
 
 ### Local Development
 Simply open any `.html` file in your browser or use a local server:
