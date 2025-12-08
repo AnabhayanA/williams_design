@@ -480,8 +480,43 @@ a:active {
 }
 
 /* ==========================================================================
-   Tables
+   Testimonials
    ========================================================================== */
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.testimonial {
+  padding: 1.5rem;
+  border-left: 4px solid var(--primary-crimson);
+  background: linear-gradient(135deg, #FFFAF0 0%, var(--cream) 100%);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(139, 69, 19, 0.08);
+  transition: all 0.3s ease;
+}
+
+.testimonial:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(139, 69, 19, 0.12);
+}
+
+.testimonial-text {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--espresso);
+  font-style: italic;
+  margin: 0 0 1rem 0;
+}
+
+.testimonial-author {
+  font-size: 0.9rem;
+  color: var(--mocha);
+  font-weight: 600;
+  margin: 0;
+}
 table {
   width: 100%;
   border-collapse: collapse;
